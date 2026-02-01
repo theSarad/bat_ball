@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bat ball Stump game by nirmal</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui,'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+  background-image: url(https://as2.ftcdn.net/v2/jpg/07/13/36/77/1000_F_713367723_tpmIsmQ66c2OUMtY5Hj1bv1Y0r2e8QHJ.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+    color: white;
+    overflow: hidden;
+}
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4vh;
+}
+
+main #part-1{
+    text-align: center;
+    margin-top: 5vmax;
+}
+main #part-1 #name{
+    color: black;
+    font-size: 2em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    background-color: burlywood;
+    border-radius: 4px;
+    text-align: center;
+}
+main #part-2{  
+    margin: auto;
+    width: 60vmin;
+    height: 95vmin;
+    background-color: rgba(200, 247, 180, 0.934);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 10vh;
+}
+#part-2 .imgS{
+    cursor: pointer;
+    border: 1px solid white;
+     width: 20.5vmin;
+    height: 20.5vmin;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#bat{
+   
+ background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwU1z8IAiZknLaWAR7_07qLt9tWf06frOLfg&s);
+ background-repeat: no-repeat;
+ background-size:  contain;
+ transition: transform 0.3s ease-in-out;
+}
+#bat:hover{
+   transform: scale(1.2);
+}
+#ball{
+ background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsGpr8PCrc1PzoaUmu-SgNxaco60VTfOimgg&s);
+ background-repeat: no-repeat;
+ background-size: contain;
+ transition: transform 0.3s ease-in-out;
+}
+#ball:hover{
+   transform: scale(1.2);
+}
+#stump{
+ background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx176j0L6H4fyWZMB_fU5dQhfArTCplS2HrA&s);
+ background-repeat: no-repeat;
+ background-size: contain;
+  transition: transform 0.3s ease-in-out;
+}
+#stump:hover{
+   transform: scale(1.2);
+}
+#gameS{
+    width: 30vw;
+    height: 20vh;
+     position: absolute;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+   top: 12vmax;
+   left: 7vmax;
+}
+#com{
+    margin-top: 10px;
+     color: black;
+     width: 30vw;
+     text-align: center;
+     background-color: white;
+     border-radius: 4px;
+   font-size: 3vh;
+   font-weight: 500;
+   text-transform: capitalize;
+}
+#result{
+     margin-top: 10px;
+      text-transform: capitalize;
+     color: black;
+     width: 30vw;
+     text-align: center;
+     background-color: white;
+     border-radius: 4px;
+   font-size: 3vh;
+   font-weight: 500;
+}
+#score{
+    position: absolute;
+    display: block;
+    top: 20vh;
+    left: 40%;
+}
+#win{
+     width: 18vmin;
+     background-color: #2f2f04;
+    padding: 2px;
+   font-size: 3vh;
+   font-weight: 500;
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+   text-transform: capitalize;
+}
+#lost{
+     width: 18vmin;
+     background-color: rgba(206, 9, 9, 0.895);
+    padding: 2px;
+   font-size: 3vh;
+   font-weight: 500;
+   text-transform: capitalize;
+}
+#tie{
+     color: white;
+     width: 18vmin;
+     background-color: green;
+    padding: 2px;
+   font-size: 3vh;
+   font-weight: 500;
+   text-transform: capitalize;
+    border-bottom-left-radius: 10px;
+   border-bottom-right-radius: 10px;
+}
+#high-score{
+        color: rgb(23, 3, 3);
+        font-size: 2.5vh;
+        }
+#block{
+   display: none;
+   position: absolute;
+   text-align: center;
+    top: 50%;
+    width: 100%;
+    height: 20%;
+    }
+    #block h4 {
+        margin: auto;
+        color: white;
+        width: 30vw;
+        border: 1px solid white ;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2.4px;
+        background-color: red;
+        font-size: 5vh;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 600;
+        text-transform: capitalize;
+        }
+    #Com-win{
+        margin: auto;
+        margin-top: 10px;
+        width: 45%;
+        background-color: white;
+        height: 20px;
+        color: rgb(69, 30, 224);
+        font-weight: 900;
+        text-transform: capitalize;
+        }   
+
+    #reset{
+      position: absolute;
+      width: 100px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      top: 90%;
+      left: 48%;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    #action-0{
+       position: absolute;
+       width: 100%;
+      height: 100%;
+      opacity: 1;
+      object-fit: cover;
+      cursor: pointer;
+      z-index: 1;
+    }
+    </style>
+</head>
+<body>
+    <main>
+        <div id="part-1">
+            <h2 id="name">Bat BAll Stump</h2>
+        </div>
+        <div id="part-2">
+            <H4 id="bat" class="imgS"></H4>
+            <h4 id="ball"class="imgS" ></h4>
+            <h4 id="stump" class="imgS"></h4>
+        </div>
+    </main>
+    <div id="gameS">
+        <h4 id="com"></h4>
+        <h5 id="result"></h5>
+    </div>
+    <div id="score">
+        <p id="win">WIN: 0</p>
+        <p id="lost">LOST: 0</p>
+        <p id="tie">TIE: 0</p>
+    </div>
+    <div id="block">
+        <h4 id="text">Game Over</h4>
+        <h5 id="Com-win"></h5>
+        <button id="reset"><img src="https://www.shutterstock.com/shutterstock/photos/1023401953/display_1500/stock-vector-lets-play-calligraphy-lettering-isolated-sticker-word-design-template-vector-illustration-1023401953.jpg" alt="" id="action-0"></button>
+        <br>
+        <h5 id="high-score">High Score: 0</h5>
+    </div>
+    <script>
+        // <reference path="game.bat.html" />
+document.addEventListener("DOMContentLoaded",(e)=>{
+  let gtl = gsap.timeline();
+  gtl.to("#name",{
+      opacity: 1,
+      x: 100,
+      duration: 2
+  })
+  
+  var song = new Audio('Powerful-Trap-(chosic.com).mp3');
+  window.addEventListener('load', function(){
+    song.play();
+  });
+
+  // selecting all required elements
+
+  var bat = document.querySelector('#bat');
+   var imge_action_1 = document.querySelector('#action-1');
+   var imge_action_2 = document.querySelector('#action-2');
+   var imge_action_3 = document.querySelector('#action-3');
+   var imge_action = document.querySelector('#imge-action');
+  var ball = document.querySelector('#ball');
+  var stump = document.querySelector('#stump');
+  var com = document.querySelector('#com')
+  var gameOver = new Audio("game-over-deep-male-voice-clip-352695.mp3");
+  var result = document.querySelector('#result');
+  var click = new Audio("mixkit-select-click-1109.wav");
+  let win = document.querySelector('#win');
+  let lost = document.querySelector('#lost');
+  let tie = document.querySelector('#tie');
+  let highScore = document.querySelector('#high-score');
+  let block = document.querySelector('#block');
+  let main = document.querySelector('main');
+  var Com_win = document.querySelector('#Com-win');
+  var reset = document.querySelector('#reset');
+  let computer;
+  var winN = 0;
+  var lostN = 0;
+  var tieN =0;
+  let highS = 0;
+  // event listeners to all the buttons to call the main function and play sound on hover after game over
+
+  main.addEventListener('mouseenter', ()=>{
+    block1();
+  });
+  bat.addEventListener('mouseenter', ()=>{
+    block1();
+  });
+  ball.addEventListener('mouseenter', ()=>{
+    block1();
+  });
+  stump.addEventListener('mouseenter', ()=>{
+    block1();
+  });
+
+  //function to get computer choice and decide the winner
+
+  bat.addEventListener('click', ()=>{
+    block1();
+    click.play();
+    game();
+    
+  if(computer === 'ball'){
+    result.innerHTML = 'user has won';
+    sco_1();
+  }
+  else if(computer === 'bat'){
+    result.innerHTML = "tai game";
+    sco_1();
+  }
+  else if(computer === 'stump'){
+    result.innerHTML = "copmuter has won";
+    sco_1();
+  }
+  });
+  // event listener to all the buttons
+  // and calling the main function on click and updating the score
+
+  ball.addEventListener('click', ()=>{
+    block1();
+    click.play();
+    game();
+      if(computer === 'ball'){
+        result.innerHTML = ("tai game");
+        sco_1();
+  }
+  else if(computer === 'bat'){
+    result.innerHTML = ('copmuter has won');
+    sco_1();
+  }
+  else if(computer === 'stump'){
+    result.innerHTML= ("user has won");
+    sco_1();
+  }
+  });
+
+  stump.addEventListener('click', ()=>{
+    block1();
+    click.play();
+    game();
+  if(computer === 'stump'){
+    result.innerHTML = ("tai game");
+    sco_1();
+  }
+  else if(computer === 'ball'){
+    result.innerHTML = (`computer won`);
+    sco_1();
+  }
+  else if(computer === 'bat'){
+    result.innerHTML = ("user has won");
+    sco_1();
+  }
+  });
+
+  // function to update the score
+
+  function sco_1(){
+  if(result.innerHTML === 'user has won'){
+    winN++;
+    win.textContent = `WIN: ${winN}`;
+    high();
+  }
+  else  if (result.innerHTML === "tai game"){
+    tieN++;
+    tie.textContent = `TIE: ${tieN}`;
+  }
+  else{
+    lostN++;
+    lost.textContent = `LOST: ${lostN}`;
+  }
+  };
+
+  // function to get computer choice
+
+  function game(){
+    let remdon = Math.random()*3;
+    if(remdon >0 && remdon <=1){
+      computer = 'bat';
+    } 
+    else if(remdon >1 && remdon <= 2){
+      computer = 'ball';
+    }
+    else{
+      computer = 'stump';
+    }
+    com.innerHTML =(`computer choice is ${computer}`);
+  };
+
+  // function to check if any player has reached score of 30 and display the result
+
+  function block1(){
+    if(lostN > winN){
+      gsap.to("#score",{
+     opacity: 0,
+      y: 500
+  })
+  gsap.to("#part-2",{
+    opacity: 0,
+      y: 500,
+      duration:1
+  })
+      song.pause(); 
+      gameOver.play();
+      Com_win.innerHTML = (`computer won the game with score: ${lostN}`);
+      block.style.display = "block";
+      // main.style.display = "none";
+    }
+    else if(winN === 10){
+      gsap.to("#score",{
+     opacity: 0,
+      y: 500,
+      duration:2
+  })
+  gsap.to("#part-2",{
+    opacity: 0,
+      y: 500,
+      duration:1
+  })
+      song.pause();
+      gameOver.play();
+      Com_win.innerHTML = (`user won the game with score: ${winN}`);
+      block.style.display = "block";
+      // main.style.display = "none";
+  }
+  };
+
+  // function to reset the game
+
+  reset.addEventListener('click', ()=>{
+    window.location.reload();
+    song.play();
+  });
+
+  function high(){
+      if(winN > highS){
+      highS++;
+      localStorage.setItem('newhigh', JSON.stringify(highS));
+      highScore.innerHTML = (`High Score: ${JSON.parse(localStorage.getItem('newhigh'))}`);
+      }  
+  }
+})
+ </script>
+ <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <script src="game.bat.js"></script>
+</body>
+</html>
